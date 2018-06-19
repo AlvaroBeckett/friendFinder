@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Friend Finder</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  
+</head>
+
+<body>
+
+  <div class="container" style="text-align: center">
+
+    <h2>Friend Survey</h2>
+    <hr>
+
+    <h4><strong>About You:</strong></h4>
+    <div class="row">
+      <div class="col-md-6"><h5>Name (Required)</h5>
+    <input type="text" id="name" class="form-control" required></div>
+      <div class="col-md-6"><h5>Link to Photo Image (Required)</h5>
+    <input type="text" id="photo" class="form-control" required></div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-md-6"><h4><strong>Question 1:</strong></h4>
+    <h5>You enjoy video games</h5>
+    <select id="q1">
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select></div>
+      <div class="col-md-6"><h4><strong>Question 2:</strong></h4>
+    <h5>You like to stay inside and chill.</h5>
+    <select id="q2">
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select></div>
+      <div class="col-md-6"><h4><strong>Question 3:</strong></h4>
+    <h5>You like to go to movies or concerts.</h5>
+    <select id="q3">
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select></div>
+      <div class="col-md-6"><h4><strong>Question 4:</strong></h4>
+    <h5>You are into Rap.</h5>
+    <select id="q4">
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select></div>
+      <div class="col-md-6"><h4><strong>Question 5:</strong></h4>
+    <h5>You like being outside and playing sports.</h5>
+    <select id="q5">
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select></div>
+      <div class="col-md-6"><h4><strong>Question 6:</strong></h4>
+    <h5>You like your job.</h5>
+    <select id="q6">
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select></div>
+      <div class="col-md-6"><h4><strong>Question 7:</strong></h4>
+    <h5>You act before you think.</h5>
+    <select id="q7">
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select></div>
+      <div class="col-md-6"><h4><strong>Question 8:</strong></h4>
+    <h5>You are a doing instead of a follower</h5>
+    <select id="q8">
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select></div>
+      <div class="col-md-6"><h4><strong>Question 9:</strong></h4>
+    <h5>You like to drink</h5>
+    <select id="q9">
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select></div>
+      <div class="col-md-6"><h4><strong>Question 10:</strong></h4>
+    <h5>You like being out with people</h5>
+    <select id="q10">
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select></div>
+    </div>
+    <br>
+
+    <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">Submit</button>
+
+    <hr>
+    <footer class="footer">
+      <div class="container">
+        <p><a href="/api/friends">API Friends List</a></p>
+      </div>
+    </footer>
+
+  </div>
+
+  <div id="results-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="close" style="text-align: left !important" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title" style="text-align: left !important"><strong>Best Match:</strong></h2>
+        </div>
+        <div class="modal-body">
+          <h2 id="match-name"></h2>
+          <img id="match-img" style="max-width: 450px">
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="text/javascript">
+ 
+
+    $("#submit").on("click", function(event) {
+      event.preventDefault();
+
+
+      var userData = {
+        name: $("#name").val(),
+        photo: $("#photo").val(),
+        scores: [
+          parseInt($("#q1").val()),
+          parseInt($("#q2").val()),
+          parseInt($("#q3").val()),
+          parseInt($("#q4").val()),
+          parseInt($("#q5").val()),
+          parseInt($("#q6").val()),
+          parseInt($("#q7").val()),
+          parseInt($("#q8").val()),
+          parseInt($("#q9").val()),
+          parseInt($("#q10").val())
+        ]
+      };
+
+
+      $.post("/api/friends", userData, function(data) {
+
+
+        $("#match-name").text(data.name);
+        $("#match-img").attr("src", data.photo);
+
+
+        $("#results-modal").modal("toggle");
+
+      });
+    });
+  </script>
+
+</body>
+
+</html>
